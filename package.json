@@ -9,7 +9,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Satyam-2001/ZohoBooks.git"
+    "url": "git+https://github.com/Satyam-2001/Zohobooks-SDK.git"
   },
   "scripts": {
     "dev": "tsc -p tsconfig.json --watch",

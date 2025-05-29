@@ -6,8 +6,8 @@
   <a href="https://www.npmjs.com/package/zohobooks-sdk">
     <img src="https://img.shields.io/npm/v/zohobooks-sdk.svg" alt="npm version">
   </a>
-  <a href="https://github.com/yourusername/zohobooks-sdk/actions">
-    <img src="https://github.com/Satyam-2001/zohobooks-sdk/workflows/CI/badge.svg" alt="Build Status">
+  <a href="https://github.com/Satyam-2001/Zohobooks-SDK/actions">
+    <img src="https://github.com/Satyam-2001/Zohobooks-SDK/workflows/CI/badge.svg" alt="Build Status">
   </a>
   <a href="https://opensource.org/licenses/MIT">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
@@ -143,4 +143,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [Zoho Books API Documentation](https://www.zoho.com/books/api/v3/)
 - [Zoho Developer Console](https://api-console.zoho.com)
-- [Report an Issue](https://github.com/Satyam-2001/zohobooks-sdk/issues)
+- [Report an Issue](https://github.com/Satyam-2001/Zohobooks-SDK/issues)
