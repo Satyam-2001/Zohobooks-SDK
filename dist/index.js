@@ -8,12 +8,9 @@ const contacts_1 = require("./resources/contacts");
 const auth_1 = require("./auth");
 Object.defineProperty(exports, "ZohoBooksAuth", { enumerable: true, get: function () { return auth_1.ZohoBooksAuth; } });
 class ZohoBooks {
-    api;
-    contacts;
     constructor(config) {
         this.api = new api_1.ZohoBooksApi(config);
         this.contacts = new contacts_1.Contacts(this.api);
     }
 }
 exports.ZohoBooks = ZohoBooks;
-//# sourceMappingURL=index.js.map

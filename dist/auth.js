@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ZohoBooksAuth = void 0;
 const axios_1 = __importDefault(require("axios"));
 class ZohoBooksAuth {
-    api;
     constructor(config) {
         this.api = axios_1.default.create({
             baseURL: config.baseAuthUrl || "https://accounts.zoho.in/oauth/v2/token",
@@ -16,7 +15,13 @@ class ZohoBooksAuth {
             },
         });
     }
+    /**
+     * Exchange authorization code for access token
+     * @param params Object containing code and redirect_uri
+     * @returns Promise with TokenResponse
+     */
     async getToken(params) {
+        var _a, _b;
         try {
             const response = await this.api.post("", null, {
                 params: {
@@ -28,12 +33,18 @@ class ZohoBooksAuth {
         }
         catch (error) {
             if (axios_1.default.isAxiosError(error)) {
-                throw new Error(`Failed to get token: ${error.response?.data?.error || error.message}`);
+                throw new Error(`Failed to get token: ${((_b = (_a = error.response) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.error) || error.message}`);
             }
             throw new Error("Unknown error occurred while getting token");
         }
     }
+    /**
+     * Refresh access token using refresh token
+     * @param refreshToken The refresh token
+     * @returns Promise with RefreshTokenResponse
+     */
     async refreshAccessToken(refreshToken) {
+        var _a, _b;
         try {
             const response = await this.api.post("", null, {
                 params: {
@@ -45,11 +56,10 @@ class ZohoBooksAuth {
         }
         catch (error) {
             if (axios_1.default.isAxiosError(error)) {
-                throw new Error(`Failed to refresh token: ${error.response?.data?.error || error.message}`);
+                throw new Error(`Failed to refresh token: ${((_b = (_a = error.response) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.error) || error.message}`);
             }
             throw new Error("Unknown error occurred while refreshing token");
         }
     }
 }
 exports.ZohoBooksAuth = ZohoBooksAuth;
-//# sourceMappingURL=auth.js.map

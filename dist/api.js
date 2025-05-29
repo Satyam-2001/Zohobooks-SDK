@@ -17,12 +17,10 @@ var APIHost;
     APIHost["SaudiArabia"] = "https://www.zohoapis.sa/books/v3/";
 })(APIHost || (exports.APIHost = APIHost = {}));
 class ZohoBooksApi {
-    config;
-    accessToken = null;
-    tokenExpiry = null;
-    axiosInstance;
     constructor(config) {
         this.config = config;
+        this.accessToken = null;
+        this.tokenExpiry = null;
         this.axiosInstance = this.create();
     }
     create(endpoint = "") {
@@ -67,13 +65,15 @@ class ZohoBooksApi {
         return this.accessToken;
     }
     setupInterceptors(axiosInstance) {
+        // Request interceptor
         axiosInstance.interceptors.request.use(async (config) => {
+            var _a;
             if (this.config.autoRefreshToken !== false) {
                 const token = await this.getAccessToken();
                 config.headers.Authorization = `Zoho-oauthtoken ${token}`;
             }
             if (this.config.logger) {
-                console.log(`Request: ${config.method?.toUpperCase()} ${config.url}`);
+                console.log(`Request: ${(_a = config.method) === null || _a === void 0 ? void 0 : _a.toUpperCase()} ${config.url}`);
             }
             return config;
         }, (error) => {
@@ -82,13 +82,15 @@ class ZohoBooksApi {
             }
             return Promise.reject(error);
         });
+        // Response interceptor
         axiosInstance.interceptors.response.use((response) => {
             if (this.config.logger) {
                 console.log(`Response: ${response.status} ${response.config.url}`);
             }
             return response.data;
         }, (error) => {
-            const errorData = error.response?.data || error.message;
+            var _a;
+            const errorData = ((_a = error.response) === null || _a === void 0 ? void 0 : _a.data) || error.message;
             if (this.config.logger) {
                 console.error("API Error:", errorData);
             }
@@ -148,4 +150,24 @@ class ZohoBooksApi {
     }
 }
 exports.ZohoBooksApi = ZohoBooksApi;
-//# sourceMappingURL=api.js.map
+// Example usage:
+/*
+const zohoBooks = new ZohoBooksApi({
+  host: APIHost.UnitedStates,
+  refreshToken: 'your_refresh_token',
+  organizationId: 'your_org_id',
+  clientId: 'your_client_id',
+  clientSecret: 'your_client_secret',
+  logger: true
+});
+
+// Get an invoice
+const invoice = await zohoBooks.get('/invoices/123456789');
+
+// Create a contact
+const newContact = await zohoBooks.post('/contacts', {
+  contact_name: 'John Doe',
+  contact_type: 'customer',
+  email: 'john@example.com'
+});
+*/
