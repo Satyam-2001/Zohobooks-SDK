@@ -6,9 +6,6 @@
   <a href="https://www.npmjs.com/package/zohobooks-sdk">
     <img src="https://img.shields.io/npm/v/zohobooks-sdk.svg" alt="npm version">
   </a>
-  <a href="https://github.com/Satyam-2001/Zohobooks-SDK/actions">
-    <img src="https://github.com/Satyam-2001/Zohobooks-SDK/workflows/CI/badge.svg" alt="Build Status">
-  </a>
   <a href="https://opensource.org/licenses/MIT">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
   </a>

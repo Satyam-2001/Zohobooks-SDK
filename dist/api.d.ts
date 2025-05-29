@@ -3,6 +3,11 @@ export type ZohoResponse<T = any> = T & {
     code: number;
     message: string;
 };
+export type PageContext<T extends Record<string, any> = {}> = T & {
+    page: number;
+    per_page: number;
+    has_more_page: boolean;
+};
 export declare enum APIHost {
     UnitedStates = "https://www.zohoapis.com/books/v3/",
     Europe = "https://www.zohoapis.eu/books/v3/",
