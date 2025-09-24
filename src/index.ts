@@ -1,18 +1,8 @@
-import { APIHost, ZohoBooksApi, ZohoBooksConfig } from "./api";
-import { Contacts } from "./resources/contacts";
-import { ZohoBooksAuth } from "./auth";
-import { Invoices } from "resources/invoices";
+import { ZohoBooks } from "./app";
 
-export class ZohoBooks {
-  private readonly api: ZohoBooksApi;
-  public readonly contacts: Contacts;
-  public readonly invoices: Invoices;
-
-  constructor(config: ZohoBooksConfig) {
-    this.api = new ZohoBooksApi(config);
-    this.contacts = new Contacts(this.api);
-    this.invoices = new Invoices(this.api);
-  }
-}
-
-export { APIHost, ZohoBooksApi, ZohoBooksAuth };
+export * from "./api";
+export * from "./auth";
+export * from "./resources";
+export * from "./constants/endpoints";
+export * from "./app";
+export default ZohoBooks;

@@ -1,6 +1,6 @@
 import { ZohoBooksApi } from "../../api";
 import { EndPoint } from "../../constants/endpoints";
-import { ApiClient } from "common/api-client";
+import { ApiClient } from "../../common/api-client";
 import { Payment, PaymentResponse, PaymentListResponse } from "./types";
 
 export class Payments extends ApiClient {

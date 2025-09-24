@@ -1,6 +1,6 @@
 import { ZohoBooksApi } from "../../api";
 import { EndPoint } from "../../constants/endpoints";
-import { ApiClient } from "common/api-client";
+import { ApiClient } from "../../common/api-client";
 import { Estimate, EstimateResponse, EstimateListResponse } from "./types";
 
 export class Estimates extends ApiClient {

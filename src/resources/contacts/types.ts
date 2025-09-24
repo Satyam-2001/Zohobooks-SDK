@@ -1,24 +1,26 @@
 export interface Address {
-  attention: string;
-  address: string;
-  street2: string;
-  state_code: string;
-  city: string;
-  state: string;
-  zip: number;
-  country: string;
-  fax: string;
-  phone: string;
+  attention?: string;
+  address?: string;
+  street2?: string;
+  state_code?: string;
+  city?: string;
+  state?: string;
+  zip?: number;
+  country?: string;
+  fax?: string;
+  phone?: string;
 }
 
 export interface ZohoContact {
   contact_id: number;
   contact_name: string;
+  customer_name: string;
   company_name: string;
   has_transaction: boolean;
   contact_type: "customer" | "vendor" | string;
   customer_sub_type: "business" | "individual" | string;
   credit_limit: number;
+  phone: string;
   is_portal_enabled: boolean;
   language_code: string;
   is_taxable: boolean;
@@ -71,18 +73,18 @@ export interface ZohoContact {
   facebook?: string;
   twitter?: string;
   contact_persons: {
-    contact_person_id: number;
-    salutation: string;
-    first_name: string;
-    last_name: string;
-    email: string;
-    phone: string;
-    mobile: string;
-    designation: string;
-    department: string;
-    skype: string;
-    is_primary_contact: boolean;
-    enable_portal: boolean;
+    contact_person_id?: number;
+    salutation?: string;
+    first_name?: string;
+    last_name?: string;
+    email?: string;
+    phone?: string;
+    mobile?: string;
+    designation?: string;
+    department?: string;
+    skype?: string;
+    is_primary_contact?: boolean;
+    enable_portal?: boolean;
   }[];
   default_templates: {
     invoice_template_id: number;
@@ -126,4 +128,11 @@ export interface ZohoContactListResponse {
     sort_column: string;
     sort_order: string;
   };
+}
+
+export interface ZohoContactQueryData {
+  phone_startwith?: string;
+  phone_contains?: string;
+  contact_name_contains?: string;
+  contact_name_startswith?: string;
 }

@@ -1,5 +1,5 @@
-import { ZohoBooksApi } from "api";
 import { AxiosInstance } from "axios";
+import { ZohoBooksApi } from "../api";
 
 export abstract class ApiClient {
   public readonly api: AxiosInstance;

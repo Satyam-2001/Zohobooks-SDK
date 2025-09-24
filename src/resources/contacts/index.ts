@@ -1,7 +1,11 @@
 import { ZohoBooksApi } from "../../api";
-import { ZohoContact, ZohoContactResponse } from "./types";
+import {
+  ZohoContact,
+  ZohoContactQueryData,
+  ZohoContactResponse,
+} from "./types";
 import { EndPoint } from "../../constants/endpoints";
-import { ApiClient } from "common/api-client";
+import { ApiClient } from "../../common/api-client";
 
 export class Contacts extends ApiClient {
   constructor(baseApi: ZohoBooksApi) {
@@ -12,8 +16,10 @@ export class Contacts extends ApiClient {
     return this.api.post("/", contactData);
   }
 
-  list(): Promise<{ code: number; contacts: ZohoContact[] }> {
-    return this.api.get("/");
+  list(
+    contactQueryData: ZohoContactQueryData
+  ): Promise<{ code: number; contacts: ZohoContact[] }> {
+    return this.api.get("/", { params: contactQueryData });
   }
 
   get(contactId: string): Promise<ZohoContactResponse> {

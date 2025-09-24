@@ -1,6 +1,6 @@
 import { ZohoBooksApi } from "../../api";
 import { EndPoint } from "../../constants/endpoints";
-import { ApiClient } from "common/api-client";
+import { ApiClient } from "../../common/api-client";
 import { Invoice, InvoiceResponse, InvoiceListResponse } from "./types";
 
 export class Invoices extends ApiClient {
@@ -16,7 +16,10 @@ export class Invoices extends ApiClient {
     return this.api.get("/");
   }
 
-  get(invoiceId: string): Promise<InvoiceResponse> {
+  get(
+    invoiceId: string,
+    options: { accept?: "pdf" | "json" | "html" } = {}
+  ): Promise<InvoiceResponse> {
     return this.api.get(`/${invoiceId}`);
   }
 

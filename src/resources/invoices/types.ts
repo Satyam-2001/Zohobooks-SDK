@@ -3,6 +3,7 @@ export interface InvoiceLineItem {
   name?: string;
   description?: string;
   quantity?: number;
+  product_type?: string; // "goods" | "service"
   rate?: number;
   discount_amount?: number;
   unit?: string;
@@ -12,6 +13,8 @@ export interface InvoiceLineItem {
   tax_name?: string;
   tax_percentage?: number;
   item_total?: number;
+  tax_exemption_id?: string;
+  item_custom_fields?: { api_name: string; value: any }[];
 }
 
 export interface CustomField {
@@ -47,6 +50,9 @@ export interface Invoice {
   balance?: number;
   created_time?: string;
   last_modified_time?: string;
+  is_discount_before_tax?: boolean;
+  adjustment?: number;
+  adjustment_description?: string;
 }
 
 export interface InvoiceResponse {

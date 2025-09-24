@@ -10,6 +10,7 @@ export interface Payment {
   status?: string;
   currency_code?: string;
   exchange_rate?: number;
+  account_id?: string;
   invoices?: {
     invoice_id: string;
     amount_applied: number;
